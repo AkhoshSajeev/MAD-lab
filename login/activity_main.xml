@@ -4,145 +4,108 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F8F8F8"
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="601dp"
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">>
 
         <TextView
-            android:id="@+id/text_View"
-            android:layout_width="251dp"
-            android:layout_height="wrap_content"
-            android:text="SIMPLE CALCULATOR"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/text_View1"
+            android:id="@+id/textView5"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textSize="24sp" />
+            android:layout_height="86dp"
+            android:background="#0C30E6"
+            android:padding="16dp"
+            android:text="LOGIN FORM"
+            android:textAlignment="viewStart"
+            android:textSize="25sp" />
 
-        <GridLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="40dp"
-            android:columnCount="4"
-            android:rowCount="4">
-            <Button android:id="@+id/button1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onDigitClick"
-            android:text="1" />
 
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="onDigitClick"
-                android:text="2" />
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="onDigitClick"
-                android:text="3" />
-
-            <Button
-                android:id="@+id/buttonDiv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="onOperatorClick"
-                android:text="/" />
-            <Button
-                android:id="@+id/button4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="onDigitClick"
-                android:text="4" />
-
-            <Button
-                android:id="@+id/button5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="onDigitClick"
-                android:text="5" />
-            <Button
-                android:id="@+id/button6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="onDigitClick"
-                android:text="6" />
-            <Button
-                android:id="@+id/buttonMul"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="onOperatorClick"
-                android:text="*" />
-            <Button
-                android:id="@+id/button7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="onDigitClick"
-                android:text="7" />
-            <Button
-                android:id="@+id/button8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="onDigitClick"
-                android:text="8" />
-
-            <Button
-                android:id="@+id/button9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="onDigitClick"
-                android:text="9" />
-            <Button
-                android:id="@+id/buttonSub"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="onOperatorClick"
-                android:text="-" />
-            <Button
-                android:id="@+id/button0"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="onDigitClick"
-                android:text="0" />
-            <Button
-                android:id="@+id/buttonDot"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="onClearClick"
-                android:text="C" />
-
-            <Button
-                android:id="@+id/buttonEqual"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="onEqualsClick"
-                android:text="=" />
-            <Button
-                android:id="@+id/buttonAdd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:text="+" />
-        </GridLayout>
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onOperatorClick1"
-            android:text="hello" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Email Address"
+        android:textSize="20dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/uname"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <Button
+        android:id="@+id/lbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:textSize="20dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pwd"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <EditText
+        android:id="@+id/pwd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="enter password"
+        android:inputType="textPassword"
+        android:textSize="20dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/lbtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <EditText
+        android:id="@+id/uname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="enter email"
+        android:inputType="text"
+        android:textSize="20dp"
+
+
+        app:layout_constraintBottom_toTopOf="@+id/textView7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="102dp"
+        android:layout_height="32dp"
+        android:text="Password"
+        android:textSize="20dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/pwd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/uname"
+        app:layout_constraintVertical_bias="0.5" />
 </androidx.constraintlayout.widget.ConstraintLayout>
