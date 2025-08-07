@@ -1,79 +1,46 @@
-package com.example.calculator1;
+package com.example.login;
 
-import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
 
-
-    private TextView textView1;
-    private Button button1, button2,button3, button4,button5, button6, button7,button8,button9,button0;
-     private  Button buttonAdd, buttonSub,buttonMul,buttonDot,buttonEqual;
-     private String currentInput = "";
-     private double operand1 = 0;
-     private String operator="";
+public class MainActivity extends AppCompatActivity{
+    private static final String VALID_USR_NAME="user";
+    private static final String VALID_PWD="pass";
+    private EditText username;
+    private EditText password;
+    private Button loginbtn;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        textView1 = findViewById(R.id.text_View1);
+        username=findViewById(R.id.uname);
+        password=findViewById(R.id.pwd);
+        loginbtn=findViewById(R.id.lbtn);
+        loginbtn.setOnClickListener(view -> {
+            String enteredUname=username.getText().toString().trim();
+            String enterPwd=password.getText().toString().trim();
 
-    }
+            if (enteredUname.isEmpty()|| enterPwd.isEmpty()){
+                showToast("pleace enter umane and password");
 
-
-    public void onDigitClick(View view) {
-        Button button = (Button) view;
-        currentInput += button.getText().toString();
-        updateDisplay();
+            }
+            else if (isValid(enteredUname, enterPwd)) {
+                showToast("Login Success");
+            }else {
+                showToast("Invalid credentials");
+            }
+        });
     }
-    public void onOperatorClick1(View view) {
-        textView1.setText("Hello! Button clicked.");
-    }
-
-    public void onOperatorClick(View view) {
-        if (!currentInput.isEmpty()) {
-            operand1 = Double.parseDouble(currentInput);
-            operator = ((Button) view).getText().toString();
-            currentInput = "";
-        }
-    }
-    public void onEqualsClick(View view) {
-        if (!currentInput.isEmpty()) {
-            double operand2 = Double.parseDouble(currentInput);
-            double result = performOperation(operand1, operand2, operator);
-            currentInput = String.valueOf(result);
-            updateDisplay();
-        }
-    }
-    public void onClearClick(View view) {
-        currentInput = "";
-        operand1 = 0;
-        operator = "";
-        updateDisplay();
-    }
-    private double performOperation(double operand1, double operand2, String operator) {
-        switch (operator) {
-            case "+":
-                return operand1 + operand2;
-            case "-":
-                return operand1 - operand2;
-            case "*":
-                return operand1 * operand2;
-            case "/":
-                if (operand2 != 0)
-                    return operand1 / operand2;
-                else
-                    return Double.NaN;
-            default:
-                return 0;
-        }
-    }
-    public void updateDisplay() {
-        textView1.setText(currentInput);
+    public boolean isValid(String euname, String epwd) {
+        return VALID_USR_NAME.equals(euname) && VALID_PWD.equals(epwd);
+}
+    private void showToast(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
     }
 }
