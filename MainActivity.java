@@ -1,60 +1,39 @@
-package com.example.life_cycle;
+package com.example.ui_controls;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        showToast("Activity Created");
-// Set up onClick listeners for each button
-        Button onCreateButton = findViewById(R.id.onCreateButton);
-        Button onStartButton = findViewById(R.id.onStartButton);
-        Button onPauseButton = findViewById(R.id.onPauseButton);
-        Button onStopButton = findViewById(R.id.onStopButton);
-        Button onRestartButton = findViewById(R.id.onRestartButton);
-        Button onDestroyButton = findViewById(R.id.onDestroyButton);
-        onCreateButton.setOnClickListener(v -> showToast("onCreate() Clicked"));
-        onStartButton.setOnClickListener(v -> showToast("onStart() Clicked"));
-        onPauseButton.setOnClickListener(v -> showToast("onPause() Clicked"));
-        onStopButton.setOnClickListener(v -> showToast("onStop() Clicked"));
-        onRestartButton.setOnClickListener(v -> showToast("onRestart() Clicked"));
-        onDestroyButton.setOnClickListener(v -> showToast("onDestroy() Clicked"));
+        Button constraintButton = findViewById(R.id.constraintButton);
+        Button linearButton = findViewById(R.id.linearButton);
+        Button gridButton = findViewById(R.id.gridButton);
+        Button relativeButton = findViewById(R.id.relativeButton);
+        Button frameButton = findViewById(R.id.frameButton);
+        Button tableButton = findViewById(R.id.tableButton);
+        View.OnClickListener buttonClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String layoutName = ((Button) v).getText().toString();
+                displayToken(layoutName);
+            }
+        };
+
+        constraintButton.setOnClickListener(buttonClickListener);
+        linearButton.setOnClickListener(buttonClickListener);
+        gridButton.setOnClickListener(buttonClickListener);
+        relativeButton.setOnClickListener(buttonClickListener);
+        frameButton.setOnClickListener(buttonClickListener);
+        tableButton.setOnClickListener(buttonClickListener);
     }
-    @Override
-    protected void onStart() {
-        super.onStart();
-        showToast("Activity Started");
+    private void displayToken(String layoutName) {
+        Toast.makeText(this, "Token from " + layoutName, Toast.LENGTH_SHORT).show();
     }
-    @Override
-    protected void onResume() {
-        super.onResume();
-        showToast("Activity Resumed");
-    }
-    @Override
-    protected void onPause() {
-        super.onPause();
-        showToast("Activity Paused");
-    }
-    @Override
-    protected void onStop() {
-        super.onStop();
-        showToast("Activity Stopped");
-    }
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        showToast("Activity Restarted");
-    }
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        showToast("Activity Destroyed");
-    }
-    void showToast(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-    }
+
+
 }
